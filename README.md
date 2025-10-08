@@ -139,7 +139,7 @@ make
 
 7. **Export to `.iml` file:**
    - Try exporting directly to an `.iml` file.
-   - **If no error occurs, skip to step 11.**
+   - **If no error occurs, skip to step 8.**
    - **If you get an error about minimum disc size:**
      1. Go to “Options” and enable the dummy file option.
      2. Go back to “Directory” and add the `DUMMY` file.
