@@ -1,6 +1,6 @@
 # PS2-DevKit
 
-A complete PlayStation 2 Development Kit with everything you need to develop homebrew applications and games for the PS2. This package includes the SDK (though old, it works), CD/DVD Generator, and PS2Link networking tools. SDL is present, and there is potential to explore RenderWare integration for game engines.
+A complete PlayStation 2 Development Kit(I think) with everything you need to develop homebrew applications and games(maybe) for the PS2. This package includes the SDK (though old, it works), CD/DVD Generator, and PS2Link networking tools. SDL is present, and I intend to see if it is possible to implement the RenderWare 3.5 (Obtained from the DUMMY file of the BloodRoar 4 Game).
 
 ## CONTENTS
 
@@ -22,6 +22,8 @@ A complete PlayStation 2 Development Kit with everything you need to develop hom
   - CDVD_GEN (2.0)
   - CDVD_GEN_PT (Portuguese version)
   - IML2ISO (5.3)
+- **SAMPLES:**
+  - Some samples of what you can do with this sdk.
 
 With this kit, you can develop PS2 applications and, potentially, games.
 
