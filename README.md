@@ -3,7 +3,11 @@
 A complete PlayStation 2 Development Kit(I think) with everything you need to develop homebrew applications and games(maybe) for the PS2. This package includes the SDK (though old, it works), CD/DVD Generator, and PS2Link networking tools. SDL is present, and I intend to see if it is possible to implement the RenderWare 3.5 (Obtained from the DUMMY file of the BloodRoar 4 Game).
 
 ## CONTENTS
-
+- **DOCS**
+  - Conference_Presentations 
+  - Guides
+  - Hardware
+  - PS2_Fundamentals
 - **SDK (GSHI_PS2SDK 5.0):**
   - MinGW
   - MSYS (1.0)
@@ -22,6 +26,8 @@ A complete PlayStation 2 Development Kit(I think) with everything you need to de
   - CDVD_GEN (2.0)
   - CDVD_GEN_PT (Portuguese version)
   - IML2ISO (5.3)
+  - DUMMY (Empty)
+  - SYSTEM.CNF
 - **SAMPLES:**
   - Some samples of what you can do with this sdk.
 
@@ -110,9 +116,45 @@ make
 > Note: Running `texture.elf` in a PS2 emulator won't work because it accesses `host:texture.raw`, but it will work on real hardware with ps2link.
 
 ---
-
 ## SETTING UP CDVD
 
-**Testing...**
+1. **Extract the CDVD package** and install IML2ISO.
+2. **Prepare the necessary files for your project:**
+   - `SYSTEM.CNF` (configuration file executed by the PS2 at boot; available in the CDVD folder)
+   - `DUMMY` (a file used to fill space and ensure the minimum disc size)
+   - Your compiled `.elf` file, RENAMED to the correct format, e.g., `SLUS_999.99` (remove the `.elf` extension). See `DOCS/Guides/CDGEN.HTM` for naming details.
+   - Other project files (assets, textures, sounds, etc.)
 
+3. **Edit the `SYSTEM.CNF` file:**
+   - Make sure the line `BOOT2 = cdrom0:\SYYY_XXX.XX;1` points to your main executable (renamed, without the `.elf` extension, and followed by `;1`).
+
+4. **Open `cdvdgen.exe`:**
+   - Choose your disc type: `DVD` (up to 4GB) or `DVD Dual` (up to 8GB).
+   - Drag all your project files into the program window, **except for the `DUMMY` file at this stage**.
+
+5. **Configure disc properties:**
+   - In the "Volume" tab, set the “Disc Name” to match your main executable (`SLUS_999.99`, for example).
+
+6. **Save the project in `.ccz` format.**
+
+7. **Export to `.iml` file:**
+   - Try exporting directly to an `.iml` file.
+   - **If no error occurs, skip to step 11.**
+   - **If you get an error about minimum disc size:**
+     1. Go to “Options” and enable the dummy file option.
+     2. Go back to “Directory” and add the `DUMMY` file.
+     3. In “Layout”, find the `DUMMY` file, right-click it, and set its location to `600000` (this ensures it fills the required space).
+     4. Export the project again to `.iml` file.
+
+8. **Open IML2ISO:**
+   - Click the folder icon and select your `.iml` file.
+   - Click the "iml2iso" button to generate the ISO image.
+
+**Done! You now have a functional PS2 disc image to burn or use in emulators/real hardware.**
+
+---
+
+**Additional Tips:**
+- Refer to `DOCS/Guides/CDGEN.HTM` for advanced formatting and CDVDGEN usage tips.
+- The `DUMMY` file is only used to meet the PS2’s minimum disc size requirements; do not store important data in it.
 ---
