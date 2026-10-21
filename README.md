@@ -38,7 +38,6 @@ With this kit, you can develop PS2 applications and, potentially, games.
 ---
 
 ## SETTING UP THE SDK
-
 1. Extract the SDK.
 2. Copy the `MSYS` and `MinGW` folders to `C:\`.
 3. Go to the `MSYS\1.0` folder and run `msys.bat`.
@@ -66,6 +65,41 @@ cd cube
 make
 # cube.elf can now be run in a PS2 Emulator
 ```
+## If you wish, you can use MSYS2 to install the latest precompiled version of the PS2SDK.
+-Download everything (MSYS2 and the pre-compiled PS2SDK at https://github.com/ps2dev/ps2dev/releases/tag/v2.0.0)
+-Install MSYS2 (sometimes the setup only works when installed on the C:/ drive)
+-Place the pre-compiled archive (while still compressed) into the `/home/your_username` folder within `C:/msys64`
+
+-Add the environment variables to your `bash_profile`:
+export PS2DEV=/usr/local/ps2dev
+export PS2SDK=$PS2DEV/ps2sdk
+export GSKIT=$PS2DEV/gsKit
+export PATH=$PATH:$PS2DEV/bin:$PS2DEV/ee/bin:$PS2DEV/iop/bin:$PS2DEV/dvp/bin:$PS2SDK/bin
+
+-Open the MinGW32 terminal
+-Create the directory and extract the pre-compiled files:
+
+```sh
+mkdir -p $PS2DEV
+chown -R $USER: $PS2DEV
+tar -xf ps2dev-windows-latest.tar.gz --strip-components 1 -C $PS2DEV
+```
+(If any symlink errors occur, you can ignore them)
+
+Install library dependencies:
+pacman -S --needed make \
+mingw-w64-i686-gcc \
+mingw-w64-i686-gdb \
+mingw-w64-i686-expat \
+mingw-w64-i686-gmp \
+mingw-w64-i686-mpc \
+mingw-w64-i686-mpfr \
+mingw-w64-i686-libiconv \
+mingw-w64-i686-ncurses \
+mingw-w64-i686-termcap \
+mingw-w64-i686-xz \
+mingw-w64-i686-zlib \
+mingw-w64-i686-zstd
 
 ---
 
@@ -148,9 +182,10 @@ make
      3. In “Layout”, find the `DUMMY` file, right-click it, and set its location to `600000` (this ensures it fills the required space).
      4. Export the project again to `.iml` file.
 
-8. **Open IML2ISO:**
+8. **Open IML2ISO:** 
    - Click the folder icon and select your `.iml` file.
    - Click the "iml2iso" button to generate the ISO image.
+Note: Google Drive flagged this program as if it had a virus lol. You can also use this: https://github.com/master801/iml2iso
 
 **Done! You now have a functional PS2 disc image to burn or use in emulators/real hardware.**
 
