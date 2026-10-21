@@ -87,6 +87,7 @@ tar -xf ps2dev-windows-latest.tar.gz --strip-components 1 -C $PS2DEV
 (If any symlink errors occur, you can ignore them)
 
 Install library dependencies:
+```sh
 pacman -S --needed make \
 mingw-w64-i686-gcc \
 mingw-w64-i686-gdb \
@@ -100,7 +101,7 @@ mingw-w64-i686-termcap \
 mingw-w64-i686-xz \
 mingw-w64-i686-zlib \
 mingw-w64-i686-zstd
-
+```
 ---
 
 ## SETTING UP PS2LINK (PS2 SIDE)
@@ -185,7 +186,7 @@ mingw-w64-i686-zstd
 8. **Open IML2ISO:** 
    - Click the folder icon and select your `.iml` file.
    - Click the "iml2iso" button to generate the ISO image.
-Note: Google Drive flagged this program as if it had a virus lol. You can also use this: https://github.com/master801/iml2iso
+   - Note: Google Drive flagged this program as if it had a virus lol. You can also use this: https://github.com/master801/iml2iso
 
 **Done! You now have a functional PS2 disc image to burn or use in emulators/real hardware.**
 
