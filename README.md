@@ -4,6 +4,8 @@ A complete PlayStation 2 Development Kit(I think) with everything you need to de
 
 Download: https://drive.google.com/drive/folders/18uXYgLyBS8E6h6izeqCzyAB1ZefBH05_?usp=sharing
 
+PT-BR: Caso fale portugues eu tenho um canal no youtube onde ensino como instalar e testo. E também fiz videos sobre como criar icones para o memory card. Link: https://www.youtube.com/@Mr.Rafael2005
+
 ## CONTENTS
 - **DOCS**
   - Conference_Presentations 
